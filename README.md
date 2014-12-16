@@ -20,7 +20,7 @@ L’application VisuAgent est un environnement d’exploration de sorties de mod
 
 ### Auteurs
 
-VisuAgent a été développée par [Mehdi Boukhechba](http://mehdiboukhechba.com/), dans le cadre du projet [ANR TransMonDyn](http://www.transmondyn.parisgeo.cnrs.fr/) porté par [Lena Sanders](http://www.parisgeo.cnrs.fr/spip.php?article176).
+VisuAgent a été développé par [Mehdi Boukhechba](http://mehdiboukhechba.com/), dans le cadre du projet [ANR TransMonDyn](http://www.transmondyn.parisgeo.cnrs.fr/) porté par [Lena Sanders](http://www.parisgeo.cnrs.fr/spip.php?article176).
 Le développement a été réalisé sous la co-direction de Lena Sanders, [Hélène Mathian](http://www.parisgeo.cnrs.fr/spip.php?article148), [Florent Le Néchet](https://sites.google.com/site/florentlenechet/home) et [Robin Cura](http://www.parisgeo.cnrs.fr/spip.php?article6416) (@RCura).
 
 ### Références
