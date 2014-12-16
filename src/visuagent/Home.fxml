@@ -1,0 +1,1351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2014 Mehdi Boukhechba
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import org.controlsfx.control.*?>
+
+<VBox fx:id="vbox_principal" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visuagent.HomeController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Nouveau"  onAction="#Nouveau_onaction"/>
+                        <MenuItem mnemonicParsing="false" text="Fermer" onAction="#Fermer_onaction" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Fenêtre">
+                    <items>
+                        <Menu mnemonicParsing="false" text="Modfier">
+                            <items>
+
+                                <CheckMenuItem fx:id="checkmenuitem_Axt" mnemonicParsing="false" onAction="#checkmenuitem_Axt_onaction" selected="true" text="AxT" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <CheckMenuItem fx:id="checkmenuitem_AxA" mnemonicParsing="false" onAction="#checkmenuitem_AxA_onaction" selected="true" text="AxA" />
+                                <CheckMenuItem fx:id="checkmenuitem_AxE" mnemonicParsing="false" onAction="#checkmenuitem_AxE_onaction" selected="true" text="AxE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+
+
+                            </items>
+                        </Menu>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Ouvrir"  onAction="#Help_onaction"/>      
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="About" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" >
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Help (User)" onAction="#Licence_onaction" />
+                        <MenuItem mnemonicParsing="false" text="About"  onAction="#Licence_onaction"/>      
+                    </items>
+                </Menu>
+     
+     
+            </menus>
+        </MenuBar>
+
+        <TabPane fx:id="tabmenu" maxHeight="100.0" minHeight="100.0" prefHeight="100.0" prefWidth="-1.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="100.0">
+            <tabs>
+               
+                <Tab text="Visualisation asynchrone">
+                    <content>
+                        <GridPane id="GridPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" snapToPixel="true">
+                            <children>
+                                <GridPane alignment="CENTER" gridLinesVisible="false" mouseTransparent="false" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <children>
+                                        <ComboBox fx:id="experimentation" editable="false" minWidth="36.0" prefHeight="25.0" prefWidth="109.0" GridPane.halignment="LEFT">
+                    
+                                            <GridPane.margin>
+                                                <Insets left="2.0" top="2.0" />
+                                            </GridPane.margin>
+                                        </ComboBox>
+                                        <Label contentDisplay="RIGHT" rotate="270.0" text="Expérience" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                            <GridPane.margin>
+                                                <Insets right="-20.0" top="-40.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <ComboBox fx:id="Agregation_Exp" disable="true" editable="false" minWidth="36.0" prefHeight="25.0" prefWidth="58.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                            <GridPane.margin>
+                                                <Insets right="20.0" top="2.0" />
+                                            </GridPane.margin>
+                                        </ComboBox>
+                                        <Label style="-fx-font-size: 9;" text="Agrégation" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                            <GridPane.margin>
+                                                <Insets left="2.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                                <TabPane prefHeight="200.0" prefWidth="200.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="6" xmlns:fx="http://javafx.com/fxml">
+                                    <tabs>
+                                        <Tab text="">
+                                            <content>
+                                                <GridPane prefHeight="71.0" prefWidth="234.0" GridPane.columnIndex="2" xmlns:fx="http://javafx.com/fxml">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="171.0" xmlns:fx="http://javafx.com/fxml">
+                                                            <columnConstraints>
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="215.0" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                            <children>
+                                                                <ComboBox fx:id="indicateur" maxWidth="1.7976931348623157E308" prefHeight="29.0" promptText="Indicateur">
+                                                                    <items>
+
+                                                                    </items>
+                                                                    <padding>
+                                                                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                                    </padding>
+                                                                    <GridPane.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </GridPane.margin>
+                                                                </ComboBox>
+                                                            </children>
+                                                        </GridPane>
+                                                        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="171.0" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                            <children>
+                                                                <ComboBox fx:id="agregation_AxT" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="94.0" GridPane.columnIndex="1">
+                                                                    <items>
+
+                                                                    </items>
+                                                                    <padding>
+                                                                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                                    </padding>
+                                                                    <GridPane.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                    </GridPane.margin>
+                                                                </ComboBox>
+                                                                <Label fx:id="type_agregation_label" alignment="CENTER" contentDisplay="RIGHT" style="-fx-font-size: 9;" text="Agrégation des simulations" textAlignment="CENTER" wrapText="true" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                                            </children>
+                                                            <columnConstraints>
+                                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="89.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="82.0" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                        </GridPane>
+                                                    </children>
+                                                </GridPane>
+                                            </content>
+                                            <graphic>
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/Line-chart.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Tab>
+    
+                                        <Tab text="">
+                                            <content>
+                                                <GridPane xmlns:fx="http://javafx.com/fxml">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <GridPane xmlns:fx="http://javafx.com/fxml">
+                                                            <columnConstraints>
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="115.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="56.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                            <children>
+                                                                <ComboBox fx:id="indicateur1_AxA" maxWidth="1.7976931348623157E308" prefWidth="107.0" promptText="Indicateur1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                                    <padding>
+                                                                        <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
+                                                                    </padding>
+                                                                    <GridPane.margin>
+                                                                        <Insets left="5.0" />
+                                                                    </GridPane.margin>
+                                                                </ComboBox>
+                                                                <ComboBox fx:id="agregation_AxA_indicateur1" disable="true" prefWidth="150.0" GridPane.columnIndex="1" xmlns:fx="http://javafx.com/fxml">
+                                                                    <GridPane.margin>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                    </GridPane.margin>
+                                                                </ComboBox>
+                                                            </children>
+                                                        </GridPane>
+                                                        <GridPane GridPane.rowIndex="1" xmlns:fx="http://javafx.com/fxml">
+                                                            <columnConstraints>
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="115.0" />
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="188.0" minWidth="10.0" prefWidth="56.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                            <children>
+                                                                <ComboBox fx:id="indicateur2_AxA" maxWidth="1.7976931348623157E308" promptText="Indicateur2" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+                                                                    <padding>
+                                                                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                                    </padding>
+                                                                    <GridPane.margin>
+                                                                        <Insets left="5.0" />
+                                                                    </GridPane.margin>
+                                                                </ComboBox>
+                                                            </children>
+                                                        </GridPane>
+                                                    </children>
+                                                </GridPane>
+                                            </content>
+                                            <graphic>
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/axa.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Tab>
+                                        <Tab text="" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                            <content>
+                                                <GridPane xmlns:fx="http://javafx.com/fxml">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="128.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="43.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <ColorPicker fx:id="AxE_colorpicker" GridPane.columnIndex="1" />
+                                                        <ComboBox fx:id="indicateur_AxE" prefWidth="150.0" promptText="indicateur" GridPane.rowIndex="1" xmlns:fx="http://javafx.com/fxml">
+                                                            <padding>
+                                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                            </padding>
+                                                            <GridPane.margin>
+                                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                            </GridPane.margin>
+                                                        </ComboBox>
+                                                        <TextField fx:id="temps_AxE" prefHeight="25.0" prefWidth="126.0" promptText="Temps" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                            <GridPane.margin>
+                                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                            </GridPane.margin>
+                                                        </TextField>
+                                                    </children>
+                                                </GridPane>
+                                            </content>
+                                            <graphic>
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/gis-icon.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                                <GridPane prefHeight="71.0" prefWidth="149.0" GridPane.columnIndex="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="51.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="62.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+
+                                        <Button id="alimenter" fx:id="go" mnemonicParsing="false" onAction="#goonaction" prefHeight="54.0" prefWidth="58.0" text="" textAlignment="LEFT" textFill="WHITE" GridPane.columnIndex="2">
+                                            <graphic>
+                                                <GridPane prefHeight="49.0" prefWidth="50.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" prefHeight="13.0" prefWidth="50.0" text="Simuler" textAlignment="CENTER" textFill="black" wrapText="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                            <font>
+                                                                <Font size="8.0" fx:id="x5" />
+                                                            </font>
+                                                        </Label>
+                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                            <image>
+                                                                <Image smooth="false" url="@../image/success-icon.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="24.0" minHeight="9.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </graphic>
+                                            <GridPane.margin>
+                                                <Insets right="3.0" />
+                                            </GridPane.margin>
+                                         
+                                        </Button>
+                                        <GridPane GridPane.columnIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="34.0" minWidth="10.0" prefWidth="19.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="34.0" minWidth="10.0" prefWidth="30.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                                <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                                <RowConstraints maxHeight="23.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                            </rowConstraints>
+                                            <children>
+                                                <CheckBox fx:id="AxT_checkbox" mnemonicParsing="false" />
+                                                <CheckBox fx:id="AxA_checkbox" mnemonicParsing="false" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                                <CheckBox fx:id="AxE_checkbox" mnemonicParsing="false" GridPane.rowIndex="2" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/Line-chart.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/axa.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/gis-icon.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </GridPane>
+                                        <Separator orientation="VERTICAL" prefHeight="71.0" prefWidth="31.0" />
+                                    </children>
+                                </GridPane>
+                                <Separator orientation="VERTICAL" prefHeight="71.0" prefWidth="0.0" GridPane.columnIndex="1" />
+                                <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="7" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <Label prefHeight="21.0" prefWidth="54.0" rotate="270.0" text="Affichage" GridPane.columnIndex="9" GridPane.halignment="RIGHT" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                    <GridPane.margin>
+                                        <Insets right="-15.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <GridPane prefHeight="71.0" prefWidth="221.0" GridPane.columnIndex="4" GridPane.hgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="143.0" minWidth="143.0" prefWidth="143.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="113.0" minWidth="9.0" prefWidth="18.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="37.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="34.0" valignment="CENTER" vgrow="SOMETIMES" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                    </rowConstraints>
+                                    <children>
+                                        <SegmentedButton fx:id="segbutton" GridPane.hgrow="ALWAYS">
+                                            <GridPane.margin>
+                                                <Insets left="5.0" right="2.0" top="2.0" />
+                                            </GridPane.margin>
+                                            <padding>
+                                                <Insets left="2.0" right="2.0" top="2.0" />
+                                            </padding>
+                                        </SegmentedButton>
+                                        <TextField fx:id="num_replication"  prefHeight="25.0" prefWidth="101.0" promptText="num" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                            <GridPane.margin>
+                                                <Insets bottom="5.0" left="5.0" right="20.0" top="5.0" />
+                                            </GridPane.margin>
+                                        </TextField>
+                                        <Label contentDisplay="CENTER" rotate="270.0" text="Réplication" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin>
+                                            <padding>
+                                                <Insets left="-41.0" />
+                                            </padding>
+                                        </Label>
+                                    </children>
+                                </GridPane>
+                                <Separator orientation="VERTICAL" prefHeight="71.0" prefWidth="0.0" GridPane.columnIndex="5" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ImageView fitHeight="76.0" fitWidth="111.0" pickOnBounds="true" GridPane.columnIndex="9" GridPane.halignment="RIGHT" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                    <image>
+                                        <Image smooth="false" url="@../image/ViZuAgent_small.png" />
+                                    </image>
+                                    <GridPane.margin>
+                                        <Insets right="25.0" />
+                                    </GridPane.margin>
+                                </ImageView>
+                                <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="3" />
+                                <Button fx:id="filtre_button" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#filtre_buttononaction" GridPane.columnIndex="2">
+                                    <GridPane.margin>
+                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </GridPane.margin>
+                                    <graphic>
+                                        <GridPane xmlns:fx="http://javafx.com/fxml">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="27.0" minHeight="0.0" prefHeight="14.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="20.0" minHeight="8.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 9;" text="Filtre" GridPane.rowIndex="1" />
+                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.valignment="CENTER" GridPane.vgrow="NEVER">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/filtre.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/arrow-down.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </GridPane>
+                                    </graphic>
+                                </Button>
+                            </children>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="NEVER" maxWidth="130.0" minWidth="130.0" prefWidth="130.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints hgrow="NEVER" maxWidth="162.0" minWidth="162.0" prefWidth="162.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints hgrow="NEVER" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                                <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="262.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="262.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="266.0" minWidth="-Infinity" prefWidth="120.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                    </content>
+                    <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image smooth="false" url="@../image/paste-icon.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Tab>
+                <Tab text="Visualisation synchrone">
+                    <content>
+                        <GridPane xmlns:fx="http://javafx.com/fxml">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.0" minWidth="116.0" prefWidth="116.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="274.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="110.0" prefWidth="110.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <TabPane prefHeight="200.0" prefWidth="200.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="2" xmlns:fx="http://javafx.com/fxml">
+                                    <tabs>
+                                        <Tab text="">
+                                            <content>
+                                                <GridPane prefHeight="71.0" prefWidth="234.0" GridPane.columnIndex="2" xmlns:fx="http://javafx.com/fxml">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="171.0" xmlns:fx="http://javafx.com/fxml">
+                                                            <columnConstraints>
+                                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="215.0" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                            <children>
+                                                                <ComboBox fx:id="indicateursynchrone" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="161.0" promptText="Indicateur" GridPane.valignment="CENTER">
+                                                                    <items>
+
+                                                                    </items>
+                                                                    <padding>
+                                                                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                                    </padding>
+                                                                    <GridPane.margin>
+                                                                        <Insets left="5.0" right="5.0" />
+                                                                    </GridPane.margin>
+                                                                </ComboBox>
+                                                            </children>
+                                                        </GridPane>
+                                                    </children>
+                                                </GridPane>
+                                            </content>
+                                            <graphic>
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/Line-chart.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Tab>
+    
+                                        <Tab text="">
+                                            <content>
+                                                <GridPane xmlns:fx="http://javafx.com/fxml">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <ComboBox fx:id="indicateur1_AxAsynchrone" maxWidth="1.7976931348623157E308" prefWidth="107.0" promptText="Indicateur1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+
+
+                                                            <padding>
+                                                                <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                                                            </padding>
+                                                            <GridPane.margin>
+                                                                <Insets left="5.0" right="5.0" />
+                                                            </GridPane.margin>
+                                                        </ComboBox>
+                                                        <ComboBox fx:id="indicateur2_AxAsynchrone" maxWidth="1.7976931348623157E308" promptText="Indicateur2" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+                                                            <padding>
+                                                                <Insets bottom="2.0" left="2.0" right="5.0" top="2.0" />
+                                                            </padding>
+                                                            <GridPane.margin>
+                                                                <Insets left="5.0" right="5.0" />
+                                                            </GridPane.margin>
+                                                        </ComboBox>
+                                                    </children>
+                                                </GridPane>
+                                            </content>
+                                            <graphic>
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/axa.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Tab>
+                                        <Tab text="" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                            <content>
+                                                <GridPane xmlns:fx="http://javafx.com/fxml">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="128.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="43.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <ColorPicker fx:id="AxE_colorpickersynchrone" GridPane.columnIndex="1">
+                                                            <GridPane.margin>
+                                                                <Insets right="5.0" />
+                                                            </GridPane.margin>
+                                                        </ColorPicker>
+                                                        <ComboBox fx:id="indicateur_AxEsynchrone" prefWidth="150.0" promptText="indicateur" xmlns:fx="http://javafx.com/fxml">
+                                                            <padding>
+                                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                            </padding>
+                                                            <GridPane.margin>
+                                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                            </GridPane.margin>
+                                                        </ComboBox>
+                                                    </children>
+                                                </GridPane>
+                                            </content>
+                                            <graphic>
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/gis-icon.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                                <GridPane prefHeight="71.0" prefWidth="149.0" GridPane.columnIndex="7" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                    <children>
+                                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                                        <Button id="alimenter" fx:id="gosynchrone" mnemonicParsing="false" onAction="#gosynchroneonaction" prefHeight="54.0" prefWidth="58.0" text="" textAlignment="LEFT" textFill="WHITE" GridPane.columnIndex="2">
+                                            <graphic>
+                                                <GridPane prefHeight="49.0" prefWidth="50.0">
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" prefHeight="13.0" prefWidth="50.0" text="go" textAlignment="CENTER" textFill="black" wrapText="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                                            <font>
+                                                                <Font size="8.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                            <image>
+                                                                <Image smooth="false" url="@../image/inward_black_go.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="24.0" minHeight="9.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </graphic>
+                                          
+                                            <GridPane.margin>
+                                                <Insets right="3.0" />
+                                            </GridPane.margin>
+                                        </Button>
+                                        <GridPane GridPane.columnIndex="1">
+                                            <children>
+                                                <CheckBox fx:id="AxT_checkboxsynchrone" mnemonicParsing="false" />
+                                                <CheckBox fx:id="AxA_checkboxsynchrone" mnemonicParsing="false" GridPane.rowIndex="1" />
+                                                <CheckBox fx:id="AxE_checkboxsynchrone" mnemonicParsing="false" GridPane.rowIndex="2" />
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/Line-chart.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/axa.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/gis-icon.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="34.0" minWidth="10.0" prefWidth="19.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="34.0" minWidth="10.0" prefWidth="30.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="25.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="23.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                        </GridPane>
+                                        <Separator orientation="VERTICAL" prefHeight="71.0" prefWidth="31.0" />
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="10.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="51.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.0" minWidth="10.0" prefWidth="62.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                                <ImageView fitHeight="76.0" fitWidth="111.0" pickOnBounds="true" GridPane.columnIndex="6" GridPane.halignment="RIGHT" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                    <image>
+                                        <Image smooth="false" url="@../image/ViZuAgent_small.png" />
+                                    </image>
+                                    <GridPane.margin>
+                                        <Insets right="25.0" />
+                                    </GridPane.margin>
+                                </ImageView>
+                                <Label prefHeight="21.0" prefWidth="54.0" rotate="270.0" text="Affichage" GridPane.columnIndex="6" GridPane.halignment="RIGHT" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                    <GridPane.margin>
+                                        <Insets right="-10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <GridPane xmlns:fx="http://javafx.com/fxml">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Source :">
+                                            <GridPane.margin>
+                                                <Insets />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <Button fx:id="sourcesynchrone" mnemonicParsing="false" onAction="#sourcesynchroneonaction" GridPane.columnIndex="1">
+                                            <graphic>
+                                                <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/folder-icon.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                </GridPane>
+                                <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="1" />
+                                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <children>
+                                        <Slider fx:id="vitesse_silder" max="1000.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="100.0" nodeOrientation="RIGHT_TO_LEFT" showTickMarks="true" value="500.0" VBox.vgrow="ALWAYS">
+                                            <VBox.margin>
+                                                <Insets top="25.0" />
+                                            </VBox.margin>
+                                        </Slider>
+                                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Vitesse " />
+                                    </children>
+                                </VBox>
+                                <TextArea fx:id="temps_synchrone" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="24.0" prefWidth="80.0" promptText="Temps" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                <Separator maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="4" />
+                            </children>
+                        </GridPane>
+                    </content>
+                    <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image smooth="false" url="@../image/eye-icon.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Tab>
+                <Tab text="Administration">
+                    <content>
+                        <VBox id="VBox" alignment="CENTER" spacing="5.0">
+                            <children>
+                                <ToolBar prefHeight="69.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+                                    <items>
+                                        <Button fx:id="alimenter" mnemonicParsing="false" onAction="#alimenteronaction" prefHeight="54.0" prefWidth="58.0" text="" textAlignment="LEFT" textFill="WHITE">
+                                            <graphic>
+                                                <GridPane prefHeight="49.0" prefWidth="50.0">
+                                                    <children>
+                                                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+                                                            <image>
+                                                                <Image smooth="false" url="@../image/arrow-undo-icon.png" />
+                                                            </image>
+                                                            <GridPane.margin>
+                                                                <Insets right="-2.0" />
+                                                            </GridPane.margin>
+                                                        </ImageView>
+                                                        <Label contentDisplay="CENTER" font="$x5" prefHeight="13.0" prefWidth="50.0" text="Alimenter" textAlignment="CENTER" textFill="black" wrapText="true" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                                            <image>
+                                                                <Image smooth="false" url="@../image/database-icon.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </children>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints maxHeight="24.0" minHeight="9.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </graphic>
+                                        </Button>
+                                        <Separator orientation="VERTICAL" prefHeight="24.0" />
+                                    </items>
+                                </ToolBar>
+                            </children>
+                        </VBox>
+                    </content>
+                    <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image smooth="false" url="@../image/wheels-icon.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <Separator prefWidth="200.0" />
+        <GridPane fx:id="filtre_grid" maxHeight="100.0" maxWidth="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" VBox.vgrow="NEVER" xmlns:fx="http://javafx.com/fxml">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="550.0" minWidth="551.0" prefWidth="550.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="110.0" prefWidth="110.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <VBox prefHeight="98.0" prefWidth="777.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mes filtres" textAlignment="CENTER">
+                            <VBox.margin>
+                                <Insets left="5.0" top="5.0" />
+                            </VBox.margin>
+                        </Text>
+                        <ListView fx:id="liste_filtre" prefHeight="200.0" prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets bottom="4.0" left="4.0" />
+                            </VBox.margin>
+                        </ListView>
+                    </children>
+                </VBox>
+                <Separator orientation="VERTICAL" prefHeight="200.0" />
+                <Separator maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" GridPane.columnIndex="4" />
+                <Separator maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" orientation="VERTICAL" prefHeight="98.0" prefWidth="2.0" GridPane.columnIndex="1" />
+                <GridPane GridPane.columnIndex="3" xmlns:fx="http://javafx.com/fxml">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <HBox GridPane.halignment="CENTER" GridPane.rowIndex="2" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                            <children>
+                                <TextField fx:id="valeur_filtre" prefHeight="37.0" prefWidth="140.0" promptText="Valeur" GridPane.rowIndex="2">
+                                    <HBox.margin>
+                                        <Insets bottom="2.0" right="3.0" />
+                                    </HBox.margin>
+                                </TextField>
+                                <Button fx:id="ajouter_filtre" mnemonicParsing="false" onAction="#ajouter_filtreonaction" prefHeight="32.0" prefWidth="52.0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                    <HBox.margin>
+                                        <Insets left="4.0" />
+                                    </HBox.margin>
+                                    <graphic>
+                                        <GridPane xmlns:fx="http://javafx.com/fxml">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/filter-icon.png" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true" GridPane.valignment="BOTTOM">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/add-icon.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </GridPane>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <ComboBox fx:id="indicateur_filtre" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Indicateur" GridPane.halignment="CENTER" xmlns:fx="http://javafx.com/fxml" />
+                        <ComboBox fx:id="operateur_filtre" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Opérateur" GridPane.halignment="CENTER" GridPane.rowIndex="1" xmlns:fx="http://javafx.com/fxml" />
+                    </children>
+                </GridPane>
+                <GridPane GridPane.columnIndex="5" xmlns:fx="http://javafx.com/fxml">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="24.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="87.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="24.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="62.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                            <image>
+                                <Image smooth="false" url="@../image/Calculator-icon.png" />
+                            </image>
+                        </ImageView>
+                        <Label style="-fx-font-size: 9;" text="Supprimer" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                        <Button fx:id="supprimer_filtre" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#supprimer_filtreonaction" prefHeight="17.0" prefWidth="17.0" />
+                        <Button fx:id="nouveau_filtre" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#nouveau_filtreonaction" prefHeight="17.0" prefWidth="17.0" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                        <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                            <image>
+                                <Image smooth="false" url="@../image/Delete_Icon.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                            <image>
+                                <Image smooth="false" url="@../image/Open.png" />
+                            </image>
+                        </ImageView>
+                        <Label style="-fx-font-size: 9;" text="Nouveau" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                    </children>
+                    <GridPane.margin>
+                        <Insets left="-1.0" />
+                    </GridPane.margin>
+                </GridPane>
+            </children>
+        </GridPane>
+
+        <SplitPane fx:id="split_Body" cache="false" disable="false" dividerPositions="0.35634743875278396, 0.7416481069042317" focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+            <items>
+                <SplitPane fx:id="split_child" dividerPositions="0.44124168514412415" focusTraversable="true" minHeight="0.0" minWidth="0.0" orientation="VERTICAL" prefHeight="553.0" prefWidth="127.0">
+                    <items>
+                        <VBox id="VBox" fx:id="Axt" alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="553.0" prefWidth="420.0" spacing="5.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                            <children>
+                                <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#close_Axt" prefHeight="13.0" prefWidth="13.0" style="-fx-font-size: 6;" text="x" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                                            <GridPane.margin>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="1.0" />
+                                            </GridPane.margin>
+                                        </Button>
+                                        <Label id="View" alignment="CENTER" prefWidth="86.0" style="&#10;" text="Temps" textAlignment="CENTER" wrapText="false" GridPane.halignment="CENTER" VBox.vgrow="NEVER">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                            <textFill>
+                                                <Color blue="0.624" green="0.624" red="0.624" />
+                                            </textFill>
+                                        </Label>
+                                    </children>
+                                </GridPane>
+                                <TabPane id="Tab" fx:id="TabAxt" prefHeight="467.0" prefWidth="428.0" rotateGraphic="false" tabClosingPolicy="ALL_TABS" tabMaxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                                    <tabs>
+                                      
+                                    </tabs>
+                                </TabPane>
+                                <GridPane prefHeight="33.0" prefWidth="343.0">
+                                    <children>
+                                        <Slider fx:id="slider_Axt_replication" blockIncrement="1.0" majorTickUnit="1.0" max="200.0" min="1.0" minorTickCount="1" prefHeight="23.0" prefWidth="480.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" GridPane.columnIndex="1" />
+                                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="77.0" text="Réplications" />
+                                        <Label fx:id="slider_replication_Axt_label" alignment="CENTER" prefHeight="17.0" prefWidth="77.0" text="0" GridPane.columnIndex="2" />
+                                        <Button mnemonicParsing="false" onAction="#printAxtonaction" GridPane.columnIndex="5">
+                                            <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/Hardware%20Print.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Button>
+                                        <SegmentedButton GridPane.columnIndex="3" />
+                                        <HBox alignment="CENTER" GridPane.columnIndex="3">
+                                            <children>
+                                                <ToggleButton fx:id="iteratif_togglebutton_AxT" mnemonicParsing="false" selected="true" GridPane.columnIndex="3">
+                                                    <graphic>
+                                                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true">
+                                                            <image>
+                                                                <Image smooth="false" url="@../image/Charts-Line-icon%20(1).png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="toogleGroupeAxT" />
+                                                    </toggleGroup>
+                                                </ToggleButton>
+                                                <ToggleButton fx:id="noniteratif_togglebutton_AxT" mnemonicParsing="false" toggleGroup="$toogleGroupeAxT">
+                                                    <graphic>
+                                                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image smooth="false" url="@../image/Charts-Line-icon.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </ToggleButton>
+                                            </children>
+                                        </HBox>
+                                        <Button fx:id="add_axt" mnemonicParsing="false" onAction="#add_axt_onaction" GridPane.columnIndex="4" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                            <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/add-graphe2.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="77.0" minWidth="-Infinity" prefWidth="74.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="49.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="32.0" minWidth="-Infinity" prefWidth="32.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="30.0" minWidth="-Infinity" prefWidth="30.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </VBox>
+                        <VBox id="VBox" fx:id="AxE" alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="553.0" prefWidth="420.0" spacing="5.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                            <children>
+                                <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                    <children>
+                                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#close_AxE" prefHeight="13.0" prefWidth="13.0" style="-fx-font-size: 6;" text="x" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+
+                                            <GridPane.margin>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="1.0" />
+                                            </GridPane.margin>
+                                        </Button>
+                                        <Label id="View" alignment="CENTER" prefWidth="86.0" style="&#10;" text="Espace" textAlignment="CENTER" wrapText="false" GridPane.halignment="CENTER" VBox.vgrow="NEVER">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                            <textFill>
+                                                <Color blue="0.624" green="0.624" red="0.624" />
+                                            </textFill>
+                                        </Label>
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                                <TabPane id="Tab" fx:id="TabAxE" prefHeight="467.0" prefWidth="428.0" rotateGraphic="false" tabClosingPolicy="ALL_TABS" tabMaxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                                    <tabs>
+                                      
+                                    </tabs>
+                                </TabPane>
+                                <GridPane prefHeight="33.0" prefWidth="343.0">
+                                    <children>
+                                        <Slider fx:id="slider_AxE_temps" max="200.0" prefHeight="23.0" prefWidth="480.0" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" />
+                                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="77.0" text="Temps" />
+                                        <Label fx:id="slider_temps_AxE_label" alignment="CENTER" prefHeight="17.0" prefWidth="77.0" text="0" GridPane.columnIndex="2" />
+                                        <Button fx:id="printAxE" mnemonicParsing="false" onAction="#printAxEonaction" GridPane.columnIndex="5">
+                                            <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/Hardware%20Print.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Button>
+                                        <SegmentedButton GridPane.columnIndex="3" />
+                                        <HBox alignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                            <children>
+                                                <ToggleButton fx:id="iteratif_togglebutton_AxE" mnemonicParsing="false" prefHeight="11.0" prefWidth="22.0" selected="true" GridPane.columnIndex="3" disable="true" >
+                                                    <graphic>
+                                                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true">
+                                                            <image>
+                                                                <Image smooth="false" url="@../image/Charts-Line-icon%20(1).png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                    <toggleGroup>
+                                                        <ToggleGroup fx:id="toogleGroupeAxE" />
+                                                    </toggleGroup>
+                                                </ToggleButton>
+                                                <ToggleButton fx:id="noniteratif_togglebutton_AxE" mnemonicParsing="false" toggleGroup="$toogleGroupeAxE" disable="true" >
+                                                    <graphic>
+                                                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image smooth="false" url="@../image/Charts-Line-icon.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </ToggleButton>
+                                            </children>
+                                        </HBox>
+                                        <ToggleButton fx:id="PLAY_aXe" mnemonicParsing="false" onAction="#play_axe_onaction" prefHeight="11.0" prefWidth="22.0" GridPane.columnIndex="4" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                            <toggleGroup>
+                                                <ToggleGroup />
+                                            </toggleGroup>
+                                            <graphic>
+                                                <ImageView fx:id="" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/play.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </ToggleButton>
+                                    </children>
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="77.0" minWidth="-Infinity" prefWidth="74.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="49.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="32.0" minWidth="-Infinity" prefWidth="32.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="30.0" minWidth="-Infinity" prefWidth="30.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                </GridPane>
+                            </children>
+                        </VBox>
+                    </items>
+                </SplitPane>
+                <VBox id="VBox" fx:id="AxA" alignment="CENTER" minHeight="0.0" minWidth="0.0" prefHeight="553.0" prefWidth="420.0" spacing="5.0">
+                    <children>
+                        <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                            <children>
+                                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closeAxA" prefHeight="13.0" prefWidth="13.0" style="-fx-font-size: 6;" text="x" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+
+                                    <GridPane.margin>
+                                        <Insets bottom="2.0" left="2.0" right="2.0" top="1.0" />
+                                    </GridPane.margin>
+                                </Button>
+                                <Label id="View" alignment="CENTER" prefWidth="86.0" style="&#10;" text="Attributs" textAlignment="CENTER" wrapText="false" GridPane.halignment="CENTER" VBox.vgrow="NEVER">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                    <textFill>
+                                        <Color blue="0.624" green="0.624" red="0.624" />
+                                    </textFill>
+                                </Label>
+                            </children>
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                        <TabPane id="Tab" fx:id="TabAxA" prefHeight="467.0" prefWidth="428.0" rotateGraphic="false" tabClosingPolicy="ALL_TABS" tabMaxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                            <tabs>
+                                <Tab text="Accueil">
+                                    <content>
+                                        <GridPane hgap="5.0" vgap="5.0" xmlns:fx="http://javafx.com/fxml">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="1.7976931348623157E308" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="300.0" minHeight="300.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="1.7976931348623157E308" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                    <children>
+                                                        <ImageView fitHeight="183.0" fitWidth="300.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                            <image>
+                                                                <Image smooth="false" url="@../image/ViZuAgent2.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                        <HBox alignment="CENTER" maxHeight="50.0" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+                                                            <children>
+                                                                <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Help_onaction" prefWidth="60.0" GridPane.columnIndex="2" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                                    <graphic>
+                                                                        <GridPane xmlns:fx="http://javafx.com/fxml">
+                                                                            <columnConstraints>
+                                                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                            </columnConstraints>
+                                                                            <rowConstraints>
+                                                                                <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                                                                                <RowConstraints maxHeight="16.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                                                            </rowConstraints>
+                                                                            <children>
+                                                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image smooth="false" url="@../image/help-icon.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                                <Label style="-fx-font-size: 9;" text="Help" GridPane.rowIndex="1" />
+                                                                            </children>
+                                                                        </GridPane>
+                                                                    </graphic>
+                                                                </Button>
+                                                                <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#admin_onaction" prefWidth="60.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                                    <graphic>
+                                                                        <GridPane>
+                                                                            <children>
+                                                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image smooth="false" url="@../image/wheels-icon.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                                <Label style="-fx-font-size: 9;" text="Admin" GridPane.rowIndex="1" />
+                                                                            </children>
+                                                                            <columnConstraints>
+                                                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                            </columnConstraints>
+                                                                            <rowConstraints>
+                                                                                <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                                                                                <RowConstraints maxHeight="16.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                                                            </rowConstraints>
+                                                                        </GridPane>
+                                                                    </graphic>
+                                                                </Button>
+                                                                <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#apropo_onaction" prefWidth="60.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                                    <graphic>
+                                                                        <GridPane>
+                                                                            <children>
+                                                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image smooth="false" url="@../image/information-icon.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                                <Label style="-fx-font-size: 9;" text="A propos" GridPane.rowIndex="1" />
+                                                                            </children>
+                                                                            <columnConstraints>
+                                                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                            </columnConstraints>
+                                                                            <rowConstraints>
+                                                                                <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                                                                                <RowConstraints maxHeight="16.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                                                            </rowConstraints>
+                                                                        </GridPane>
+                                                                    </graphic>
+                                                                </Button>
+                                                                <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Quitter_onaction" prefWidth="60.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                                                    <graphic>
+                                                                        <GridPane>
+                                                                            <children>
+                                                                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                                    <image>
+                                                                                        <Image smooth="false" url="@../image/power-icon.png" />
+                                                                                    </image>
+                                                                                </ImageView>
+                                                                                <Label style="-fx-font-size: 9;" text="Quitter" GridPane.rowIndex="1" />
+                                                                            </children>
+                                                                            <columnConstraints>
+                                                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                            </columnConstraints>
+                                                                            <rowConstraints>
+                                                                                <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                                                                                <RowConstraints maxHeight="16.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                                                            </rowConstraints>
+                                                                        </GridPane>
+                                                                    </graphic>
+                                                                </Button>
+                                                            </children>
+                                                        </HBox>
+                                                    </children>
+                                                </VBox>
+                                                <Text fx:id="a_propos_droit" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke: red;" text="Text" textAlignment="CENTER" wrappingWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" />
+                                                <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                            </children>
+                                        </GridPane>
+                                    </content>
+                                    
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                        <GridPane prefHeight="33.0" prefWidth="343.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                            <columnConstraints>
+                                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="77.0" minWidth="-Infinity" prefWidth="74.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="49.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="32.0" minWidth="-Infinity" prefWidth="32.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="30.0" minWidth="10.0" prefWidth="100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="30.0" minWidth="-Infinity" prefWidth="30.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="add_axa" mnemonicParsing="false" onAction="#add_axa_onaction" GridPane.columnIndex="4" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                    <graphic>
+                                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image smooth="false" url="@../image/add-graphe2.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Slider fx:id="slider_AxA_replication" blockIncrement="1.0" majorTickUnit="1.0" min="1.0" minorTickCount="1" prefHeight="23.0" prefWidth="480.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" GridPane.columnIndex="1" />
+                                <Label alignment="CENTER" prefHeight="17.0" prefWidth="77.0" text="Réplications" />
+                                <Button fx:id="print" mnemonicParsing="false" onAction="#printonaction" GridPane.columnIndex="5">
+                                    <graphic>
+                                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image smooth="false" url="@../image/Hardware%20Print.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <SegmentedButton fx:id="réplications_segbutton" GridPane.columnIndex="3" />
+                                <HBox alignment="CENTER" GridPane.columnIndex="3" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                    <children>
+                                        <ToggleButton fx:id="iteratif_togglebutton" mnemonicParsing="false" selected="true" GridPane.columnIndex="3">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="toogleGroupe1" />
+                                            </toggleGroup>
+                                            <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/Charts-Line-icon%20(1).png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </ToggleButton>
+                                        <ToggleButton fx:id="noniteratif_togglebutton" mnemonicParsing="false" toggleGroup="$toogleGroupe1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                                            <graphic>
+                                                <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image smooth="false" url="@../image/Charts-Line-icon.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </ToggleButton>
+                                    </children>
+                                </HBox>
+                                <TextField fx:id="slider_replication_AxA_label" style="-fx-font-size: 9;" GridPane.columnIndex="2">
+                                    <GridPane.margin>
+                                        <Insets left="4.0" />
+                                    </GridPane.margin>
+                                </TextField>
+
+
+                            </children>
+                        </GridPane>
+                    </children>
+                </VBox>
+            </items>
+        </SplitPane>
+        <HBox id="HBox" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0" VBox.vgrow="NEVER">
+            <children>
+        
+
+                <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="CNRS Géocité " HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="11.0" fx:id="x3" />
+                    </font>
+                    <textFill>
+                        <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+                    </textFill>
+                </Label>
+                <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+                <Hyperlink fx:id="mywebsite" onAction="#mywebsite_onaction"  text="www.mehdiboukhechba.com" />
+            </children>
+            <padding>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+            </padding>
+        </HBox>
+        <ParallelCamera />
+    </children>
+</VBox>
